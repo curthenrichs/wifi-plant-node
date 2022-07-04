@@ -1,0 +1,5 @@
+ESP8266 Arduino : Arduino Board (NodeMCU)
+https://github.com/esp8266/Arduino
+
+WiFiManager : ESP8266 Wifi configuration
+https://github.com/tzapu/WiFiManager
