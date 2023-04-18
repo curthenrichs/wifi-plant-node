@@ -11,10 +11,28 @@ https://www.analog.com/media/en/technical-documentation/data-sheets/OP282_482.pd
 
 #define RESET_BTN_PIN       D5
 #define EXTRN_LED_PIN       D0
-#define ANALOG_PIN          A0
+#define ANALOG_MOISTURE_PIN A0
 #define AMUX_SLCT_0_PIN     D1
 #define AMUX_SLCT_1_PIN     D2
 #define AMUX_SLCT_2_PIN     D3
+
+#define BOOT_0_PIN          (D3)       //! Vcc for flash run, GND for program
+#define BOOT_2_PIN          (D4)       //! Always Vcc (via external pullup)
+#define BOOT_15_PIN         (D8)       //! Always GND (via external pulldown)
+
+/**
+ * Initialize hardware pins as defined in the device pinout
+ */
+static inline void hwcfig_init(void) {
+  pinMode(MOISTURE_SENSOR, INPUT);
+
+  pinMode(STATUS_LED_PIN, OUTPUT);
+  digitalWrite(STATUS_LED_PIN, LOW);
+
+  pinMode(BOOT_0_PIN, INPUT);
+  pinMode(BOOT_2_PIN, INPUT);
+  pinMode(BOOT_15_PIN, INPUT);
+}
 
 
 void setup() {
